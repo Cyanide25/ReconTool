@@ -1,5 +1,6 @@
 import requests
 import re
+import os
 from colorama import Fore, Style
 
 class AzureBLobs:
@@ -13,6 +14,10 @@ class AzureBLobs:
         d = self.domain
         c = d.split('.')
         CompanyName = c[0]
+
+        dirpath = "./Temp/"
+        if os.path.exists(dirpath) == False:
+            os.mkdir(dirpath)
 
         words = open("./Temp/blobhunting.txt","w")
         words.close()
@@ -35,6 +40,11 @@ class AzureBLobs:
     def StorageHunting(self):
         print("------Hunting Storage Accounts------")
         baseURL = ".blob.core.windows.net"
+
+        dirpath = "./Output/"
+        if os.path.exists(dirpath) == False:
+            os.mkdir(dirpath)
+            
         StorageAcc = open("./Output/AzureStorages.txt","w")
         StorageAcc.close()
         StorageAcc = open("./Output/AzureStorages.txt","a")
@@ -95,6 +105,10 @@ class AWSBuckets:
         c = d.split('.')
         CompanyName = c[0]
 
+        dirpath = "./Temp/"
+        if os.path.exists(dirpath) == False:
+            os.mkdir(dirpath)
+
         words = open("./Temp/Buckethunting.txt","w")
         words.close()
 
@@ -152,6 +166,10 @@ class GCPBuckets:
         d = self.domain
         c = d.split('.')
         CompanyName = c[0]
+
+        dirpath = "./Temp/"
+        if os.path.exists(dirpath) == False:
+            os.mkdir(dirpath)
 
         words = open("./Temp/GCPBuckethunting.txt","w")
         words.close()

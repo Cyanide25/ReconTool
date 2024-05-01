@@ -38,6 +38,11 @@ class WebCrawling:
 
     def crawl(self):
         print("--------Starting Web Crawling--------")
+
+        dirpath = "./Output/"
+        if os.path.exists(dirpath) == False:
+            os.mkdir(dirpath)
+
         with open("./Output/WebCrawl.txt","w") as w:    
             url = f"http://{self.domain}"
             #RegexPattern = rf'href=["\'](https?://[^"\'>]*{re.escape(self.domain)}[^"\'>]*)'
