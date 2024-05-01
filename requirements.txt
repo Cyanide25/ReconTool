@@ -1,0 +1,7 @@
+requests
+re
+colorama
+tld
+whois
+os
+selenium
